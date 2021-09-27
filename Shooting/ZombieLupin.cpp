@@ -95,6 +95,7 @@ void ZombieLupin::Render(HDC hdc)
 		switch (state)
 		{
 		case State::Idle:
+			cout << "Idle frameX : " << frameX << endl;
 			idle->Render(hdc, pos.x, pos.y - 15, frameX, frameY);
 			elapsedCount++;
 			if (elapsedCount >= 5)
@@ -110,6 +111,7 @@ void ZombieLupin::Render(HDC hdc)
 		case State::Move:
 			if (moveDir == MoveDir::Right)
 			{
+				cout << "Move Right frameX : " << frameX << endl;
 				rightMove->Render(hdc, pos.x, pos.y - 15, frameX, frameY);
 				elapsedCount++;
 				if (elapsedCount >= 5)
@@ -125,6 +127,7 @@ void ZombieLupin::Render(HDC hdc)
 			}
 			else if (moveDir == MoveDir::Left)
 			{
+				cout << "Move Left frameX : " << frameX << endl;
 				leftMove->Render(hdc, pos.x, pos.y - 15, frameX, frameY);
 				elapsedCount++;
 				if (elapsedCount >= 5)
@@ -140,7 +143,7 @@ void ZombieLupin::Render(HDC hdc)
 			}
 			break;
 		case State::Attack:
-			cout << "Attack : " << frameX << endl;
+			cout << "Attack frameX : " << frameX << endl;
 			attack->Render(hdc, pos.x, pos.y - 15, frameX, frameY);
 			elapsedCount++;
 			if (elapsedCount >= 10)
@@ -156,6 +159,7 @@ void ZombieLupin::Render(HDC hdc)
 			}
 			break;
 		case State::Damaged:
+			cout << "Damaged frameX : " << frameX << endl;
 			damaged->Render(hdc, pos.x, pos.y - 15, frameX, frameY);
 			elapsedCount++;
 			if (elapsedCount >= 5)
@@ -183,6 +187,7 @@ void ZombieLupin::Release()
 
 ZombieLupin::ZombieLupin()
 {
+	ZombieLupin::Init();
 }
 
 ZombieLupin::~ZombieLupin()
