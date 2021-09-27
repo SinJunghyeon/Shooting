@@ -13,10 +13,72 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="2D Framework">
+      <UniqueIdentifier>{c1b5c04f-4591-40ae-bd6f-da0b9ee2a228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2D Framework\Manager">
+      <UniqueIdentifier>{cbc9ba6b-e1f4-426c-a4f8-d034880c1fa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2D Framework\Object">
+      <UniqueIdentifier>{93656be9-ccdd-466e-aa01-95a29205481f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2D Framework\Object\Monster">
+      <UniqueIdentifier>{db427807-08e4-4704-b45f-a1db4dc1a1fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2D Framework\Object\Weapon">
+      <UniqueIdentifier>{99d91a67-9c1e-4c6a-b2f9-58b89329d919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame">
+      <UniqueIdentifier>{59c5e3f3-41c3-4fd3-b2b2-e89845fe8262}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>2D Framework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieLupin.cpp">
+      <Filter>2D Framework\Object\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Banana.cpp">
+      <Filter>2D Framework\Object\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>2D Framework\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>2D Framework</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Singleton.h">
+      <Filter>2D Framework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>2D Framework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieLupin.h">
+      <Filter>2D Framework\Object\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Banana.h">
+      <Filter>2D Framework\Object\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>2D Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>2D Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

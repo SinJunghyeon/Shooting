@@ -43,7 +43,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -118,7 +118,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -139,7 +139,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Banana.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="ZombieLupin.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Banana.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="KeyManager.h" />
+    <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="ZombieLupin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

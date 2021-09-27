@@ -1,0 +1,3 @@
+이름		sizeX	sizeY	frameX	frameY	
+Banana_move	540	54	10	1
+Banana_attack	162	54	3	1
