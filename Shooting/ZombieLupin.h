@@ -5,7 +5,7 @@
 
 class Image;
 
-//class Banana;
+class Banana;
 
 class ZombieLupin : public GameObject
 {
@@ -26,7 +26,7 @@ protected:
 	bool isAttack;
 	bool isAlive;
 
-	//Banana* banana;
+	Banana* banana;
 
 public:
 	void Init();

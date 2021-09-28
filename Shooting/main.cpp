@@ -3,7 +3,6 @@
 #include "Config.h"
 #include "MainGame.h"
 
-
 #ifdef UNICODE
 #pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console")
 #else
@@ -38,8 +37,7 @@ int APIENTRY WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpsz
 
 	g_hWnd = CreateWindow(g_lpszClass, g_lpszClass, WS_OVERLAPPEDWINDOW, WIN_START_POS_X, WIN_START_POS_Y, WIN_SIZE_X, WIN_SIZE_Y, NULL, NULL, _hInstance, NULL);
 
-	SetWindowSize(WIN_START_POS_X, WIN_START_POS_Y,
-		WIN_SIZE_X, WIN_SIZE_Y);
+	SetWindowSize(WIN_START_POS_X, WIN_START_POS_Y, WIN_SIZE_X, WIN_SIZE_Y);
 
 	g_mainGame.Init();
 
@@ -81,6 +79,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 	switch (iMessage)
 	{
+	case WM_CREATE:
+		break;
 	case WM_KEYDOWN:
 		switch (wParam)
 		{
@@ -94,7 +94,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		{
 			g_mainGame.Update();
 		}
-
 		break;
 	case WM_PAINT:
 		hdc = BeginPaint(g_hWnd, &ps);
