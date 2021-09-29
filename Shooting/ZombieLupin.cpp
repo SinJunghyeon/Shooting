@@ -10,7 +10,7 @@ void ZombieLupin::Init()
 	monsterPos.x = WIN_SIZE_X / 2.0f;
 	monsterPos.y = WIN_SIZE_Y - 115.0f;
 	monsterBodySize = 40;
-	monsterMoveSpeed = 5.0f;
+	monsterMoveSpeed = 2.5f;
 
 	monsterShape.left = monsterPos.x - (monsterBodySize / 2);
 	monsterShape.top = monsterPos.y - (monsterBodySize / 2);
@@ -30,9 +30,9 @@ void ZombieLupin::Init()
 	mirroringAttack = new Image;
 	mirroringAttack->Init("Image/ZombieLupin/ZombieLupin_mirroringAttack.bmp", 880, 80, 11, 1, true, RGB(255, 0, 255));
 	damaged = new Image;
-	damaged->Init("Image/ZombieLupin/ZombieLupin_damaged.bmp", 320, 80, 4, 1, true, RGB(255, 0, 255));
+	damaged->Init("Image/ZombieLupin/ZombieLupin_damaged.bmp", 720, 80, 9, 1, true, RGB(255, 0, 255));
 	mirroringDamaged = new Image;
-	mirroringDamaged->Init("Image/ZombieLupin/ZombieLupin_mirroringDamaged.bmp", 320, 80, 4, 1, true, RGB(255, 0, 255));
+	mirroringDamaged->Init("Image/ZombieLupin/ZombieLupin_mirroringDamaged.bmp", 720, 80, 9, 1, true, RGB(255, 0, 255));
 
 	isShoot = false;
 
@@ -80,6 +80,7 @@ void ZombieLupin::Render(HDC hdc)
 			break;
 		case MonsterState::Move:
 			cout << "ZombieLupin Move FrameX : " << frameX << endl;
+			cout << "elapsedCount : " << elapsedCount << endl;
 			cout << endl;
 			if (moveDir == MoveDir::Right) {
 				INSERT_MONSTER_IMAGE(rightMove);
@@ -91,6 +92,7 @@ void ZombieLupin::Render(HDC hdc)
 			break;
 		case MonsterState::Attack:
 			cout << "ZombieLupin Attack FrameX : " << frameX << endl;
+			cout << "elapsedCount : " << elapsedCount << endl;
 			cout << endl;
 			if (moveDir == MoveDir::Right) {
 				INSERT_MONSTER_IMAGE(attack);
@@ -111,6 +113,7 @@ void ZombieLupin::Render(HDC hdc)
 			break;
 		case MonsterState::Damaged:
 			cout << "ZombieLupin Damaged FrameX : " << frameX << endl;
+			cout << "elapsedCount : " << elapsedCount << endl;
 			cout << endl;
 			if (moveDir == MoveDir::Right) {
 				INSERT_MONSTER_IMAGE(damaged);
@@ -118,7 +121,7 @@ void ZombieLupin::Render(HDC hdc)
 			else if (moveDir == MoveDir::Left) {
 				INSERT_MONSTER_IMAGE(mirroringDamaged);
 			}
-			ChangeSceneX(10, 3);
+			ChangeSceneX(0, 3);
 			break;
 		}
 	}
@@ -144,23 +147,27 @@ void ZombieLupin::Release()
 
 void ZombieLupin::InputKey()
 {	
+	//공격상태가 아닐때
 	if (!isShoot) {
+		//오른쪽 키를 땠을때 정지
 		if (KeyManager::GetSingleton()->IsOnceKeyUp(MOVE_RIGHT)) {
 			frameX = 0;
 			state = MonsterState::Idle;
 			moveDir = MoveDir::Right;
 		}
+		//왼쪽 키를 땠을때 정지
 		if (KeyManager::GetSingleton()->IsOnceKeyUp(MOVE_LEFT)) {
 			frameX = 0;
 			state = MonsterState::Idle;
 			moveDir = MoveDir::Left;
 		}
-
+		//오른쪽 키를 눌렀을때 이동
 		if (KeyManager::GetSingleton()->IsStayKeyDown(MOVE_RIGHT) || KeyManager::GetSingleton()->IsOnceKeyDown(MOVE_RIGHT)) {
 			state = MonsterState::Move;
 			moveDir = MoveDir::Right;
 			monsterPos.x += monsterMoveSpeed;
 		}
+		//왼쪽 키를 눌렀을때 이동
 		else if (KeyManager::GetSingleton()->IsStayKeyDown(MOVE_LEFT) || KeyManager::GetSingleton()->IsOnceKeyDown(MOVE_LEFT)) {
 			moveDir = MoveDir::Left;
 			state = MonsterState::Move;
@@ -168,7 +175,7 @@ void ZombieLupin::InputKey()
 		}
 	}
 	//공격
-	if (KeyManager::GetSingleton()->IsOnceKeyDown(BANANA_ATTACK) && state != MonsterState::Damaged) {
+	if (KeyManager::GetSingleton()->IsOnceKeyDown(BANANA_ATTACK) && (state != MonsterState::Damaged)) {
 		state = MonsterState::Attack;
 		isShoot = true;
 		banana->SetIsFire(true);
