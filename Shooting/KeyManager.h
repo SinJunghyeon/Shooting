@@ -24,5 +24,6 @@ public:
 	// 키가 눌려져 있는지 판단
 	bool IsStayKeyDown(int key);
 	bool IsStayKeyDown(char key);
+
 };
 

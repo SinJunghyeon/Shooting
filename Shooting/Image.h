@@ -69,5 +69,6 @@ public:
 
 	int GetMaxFrameX() { return imageInfo->maxFrameX; }
 	int GetMaxFrameY() { return imageInfo->maxFrameY; }
+
 };
 
