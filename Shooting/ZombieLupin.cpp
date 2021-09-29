@@ -11,10 +11,10 @@ void ZombieLupin::Init()
 	monsterBodySize = 40;
 	monsterMoveSpeed = 5.0f;
 
-	monsterShape.left = monsterPos.x - monsterBodySize / 2;
-	monsterShape.top = monsterPos.y - monsterBodySize / 2;
-	monsterShape.right = monsterPos.x + monsterBodySize / 2;
-	monsterShape.bottom = monsterPos.y + monsterBodySize / 2;
+	monsterShape.left = monsterPos.x - (monsterBodySize / 2);
+	monsterShape.top = monsterPos.y - (monsterBodySize / 2);
+	monsterShape.right = monsterPos.x + (monsterBodySize / 2);
+	monsterShape.bottom = monsterPos.y + (monsterBodySize / 2);
 
 	banana = new Banana;
 	banana->Init();
@@ -22,19 +22,19 @@ void ZombieLupin::Init()
 
 void ZombieLupin::Update()
 {
-	//cout << "monsterPos.x : " << monsterPos.x << endl;
-	//cout << "monsterPos.y : " << monsterPos.y << endl;
-	//cout << endl;
+	cout << "monsterPos.x : " << monsterPos.x << endl;
+	cout << "monsterPos.y : " << monsterPos.y << endl;
+	cout << endl;
 	if (KeyManager::GetSingleton()->IsStayKeyDown(VK_RIGHT)) {
 		monsterPos.x += monsterMoveSpeed;
 	}
 	else if (KeyManager::GetSingleton()->IsStayKeyDown(VK_LEFT)) {
 		monsterPos.x -= monsterMoveSpeed;
 	}
-	monsterShape.left = monsterPos.x - monsterBodySize / 2;
-	monsterShape.top = monsterPos.y - monsterBodySize / 2;
-	monsterShape.right = monsterPos.x + monsterBodySize / 2;
-	monsterShape.bottom = monsterPos.y + monsterBodySize / 2;
+	monsterShape.left = monsterPos.x - (monsterBodySize / 2);
+	monsterShape.top = monsterPos.y - (monsterBodySize / 2);
+	monsterShape.right = monsterPos.x + (monsterBodySize / 2);
+	monsterShape.bottom = monsterPos.y + (monsterBodySize / 2);
 
 	banana->Update();
 	banana->SetPos(monsterPos);
@@ -52,7 +52,6 @@ void ZombieLupin::Render(HDC hdc)
 	//cout << "monsterShape.bottom : " << monsterShape.bottom << endl;
 	//cout << endl;
 	Rectangle(hdc, monsterShape.left, monsterShape.top, monsterShape.right, monsterShape.bottom);
-
 	//Banana
 	banana->Render(hdc);
 }
