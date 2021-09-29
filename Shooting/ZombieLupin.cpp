@@ -41,6 +41,7 @@ void ZombieLupin::Init()
 
 	banana = new Banana;
 	banana->Init();
+	banana->SetPos(monsterPos);
 }
 
 void ZombieLupin::Update()
@@ -121,13 +122,12 @@ void ZombieLupin::Render(HDC hdc)
 			else if (moveDir == MoveDir::Left) {
 				INSERT_MONSTER_IMAGE(mirroringDamaged);
 			}
-			ChangeSceneX(0, 3);
+			ChangeSceneX(5, 8);
 			break;
 		}
 	}
 
 	//Banana
-	banana->SetPos(monsterPos);
 	banana->Render(hdc);
 }
 
