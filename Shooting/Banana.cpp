@@ -24,10 +24,10 @@ void Banana::Update()
 
 		weaponPos.x += weaponMoveSpeed;
 
-		weaponShape.left = weaponPos.x - weaponBodySize / 2;
-		weaponShape.top = weaponPos.y - weaponBodySize / 2;
-		weaponShape.right = weaponPos.x + weaponBodySize / 2;
-		weaponShape.bottom = weaponPos.y + weaponBodySize / 2;
+		weaponShape.left = weaponPos.x - (weaponBodySize / 2);
+		weaponShape.top = weaponPos.y - (weaponBodySize / 2);
+		weaponShape.right = weaponPos.x + (weaponBodySize / 2);
+		weaponShape.bottom = weaponPos.y + (weaponBodySize / 2);
 
 		if (weaponShape.left > WIN_SIZE_X || weaponShape.right < 0 || weaponShape.top > WIN_SIZE_Y || weaponShape.bottom < 0) {
 			isFire = false;
