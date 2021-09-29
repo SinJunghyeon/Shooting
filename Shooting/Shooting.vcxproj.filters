@@ -22,14 +22,14 @@
     <Filter Include="2D Framework\Object">
       <UniqueIdentifier>{93656be9-ccdd-466e-aa01-95a29205481f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="2D Framework\Object\Monster">
-      <UniqueIdentifier>{db427807-08e4-4704-b45f-a1db4dc1a1fe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="2D Framework\Object\Weapon">
-      <UniqueIdentifier>{99d91a67-9c1e-4c6a-b2f9-58b89329d919}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MainGame">
       <UniqueIdentifier>{59c5e3f3-41c3-4fd3-b2b2-e89845fe8262}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame\Monster">
+      <UniqueIdentifier>{db427807-08e4-4704-b45f-a1db4dc1a1fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame\Weapon">
+      <UniqueIdentifier>{99d91a67-9c1e-4c6a-b2f9-58b89329d919}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,10 +55,10 @@
       <Filter>2D Framework\Object</Filter>
     </ClCompile>
     <ClCompile Include="ZombieLupin.cpp">
-      <Filter>2D Framework\Object\Monster</Filter>
+      <Filter>MainGame\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Banana.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>MainGame\Weapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,10 +87,10 @@
       <Filter>2D Framework\Object</Filter>
     </ClInclude>
     <ClInclude Include="ZombieLupin.h">
-      <Filter>2D Framework\Object\Monster</Filter>
+      <Filter>MainGame\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Banana.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>MainGame\Weapon</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

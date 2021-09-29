@@ -6,10 +6,10 @@
 using namespace std;
 
 //화면크기
-#define WIN_START_POS_X	100
+#define WIN_START_POS_X	200
 #define WIN_START_POS_Y	100
-#define WIN_SIZE_X		1280
-#define WIN_SIZE_Y		720
+#define WIN_SIZE_X		600
+#define WIN_SIZE_Y		300
 
 //키입력
 #define KEY_MAX_COUNT	256
