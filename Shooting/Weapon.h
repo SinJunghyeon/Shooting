@@ -14,6 +14,8 @@ private:
 protected:
 	bool isFire;
 
+	enum class WeaponState { Move, Hit };
+
 public:
 	void Init();
 
