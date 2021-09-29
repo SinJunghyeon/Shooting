@@ -39,12 +39,6 @@
     <ClCompile Include="KeyManager.cpp">
       <Filter>2D Framework\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="ZombieLupin.cpp">
-      <Filter>2D Framework\Object\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Banana.cpp">
-      <Filter>2D Framework\Object\Weapon</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>2D Framework\Object</Filter>
     </ClCompile>
@@ -61,12 +55,6 @@
     </ClInclude>
     <ClInclude Include="KeyManager.h">
       <Filter>2D Framework\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="ZombieLupin.h">
-      <Filter>2D Framework\Object\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Banana.h">
-      <Filter>2D Framework\Object\Weapon</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>2D Framework\Object</Filter>
