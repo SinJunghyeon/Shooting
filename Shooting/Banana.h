@@ -3,7 +3,7 @@
 #include "Config.h"
 #include "GameObject.h"
 
-class ZombieLupin;
+//class ZombieLupin;
 class Image;
 
 class Banana : public GameObject
@@ -18,7 +18,7 @@ private:
 	bool isFire;
 
 protected:
-	ZombieLupin* zombieLupin;
+	//ZombieLupin* zombieLupin;
 
 public:
 	void Init();

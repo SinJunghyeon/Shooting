@@ -1,16 +1,19 @@
 #include "Banana.h"
 
-#include "ZombieLupin.h"
+//#include "ZombieLupin.h"
 #include "Image.h"
 #include "KeyManager.h"
 
 void Banana::Init()
 {
-	zombieLupin = new ZombieLupin;
-	zombieLupin->Init();
+	//zombieLupin = new ZombieLupin;
+	//zombieLupin->Init();
 	//POINTFLOAT zombieLupinPos = zombieLupin->GetPos();
-	pos.x = zombieLupin->GetPos().x + 20;	//pos.x = zombieLupinPos.x + 20;
-	pos.y = zombieLupin->GetPos().y;		//pos.y = zombieLupinPos.y;
+	//pos.x = zombieLupinPos.x + 20;
+	//pos.y = zombieLupinPos.y;
+
+	pos.x = 120;
+	pos.y = 520;
 
 	bodySize = 27;
 	moveSpeed = 10.0f;
@@ -33,8 +36,8 @@ void Banana::Init()
 
 void Banana::Update()
 {
-	if (isFire)
-	{
+	//if (isFire)
+	//{
 		pos.x += moveSpeed / 3;
 		pos.y = pos.y;
 
@@ -42,13 +45,13 @@ void Banana::Update()
 		shape.top = pos.y - (bodySize / 2);
 		shape.right = shape.left + bodySize;
 		shape.bottom = shape.top + bodySize;
-	}
+	//}
 }
 
 void Banana::Render(HDC hdc)
 {
-	if (isFire)
-	{
+	//if (isFire)
+	//{
 		cout << "Banana pos.x : " << pos.x << endl;
 		cout << "Banana pos.y : " << pos.y << endl;
 		cout << endl;
@@ -68,12 +71,11 @@ void Banana::Render(HDC hdc)
 				isFire = false;
 			}
 		}
-
-		if (shape.left >= 1280)
-		{
-			pos.x = zombieLupin->GetPos().x + 20;
-		}
-	}
+		//if (shape.left >= WIN_SIZE_X)
+		//{
+		//	pos.x = zombieLupin->GetPos().x + 20;
+		//}
+	//}
 }
 
 void Banana::Release()

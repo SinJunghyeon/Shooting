@@ -2,6 +2,7 @@
 
 #include "Image.h"
 #include "KeyManager.h"
+#include "Banana.h"
 
 void ZombieLupin::Init()
 {
@@ -35,6 +36,9 @@ void ZombieLupin::Init()
 
 	isAttack = false;
 	isAlive = true;
+
+	//banana = new Banana;
+	//banana->Init();
 }
 
 void ZombieLupin::Update()

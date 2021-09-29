@@ -6,8 +6,8 @@
 using namespace std;
 
 //화면크기
-#define WIN_START_POS_X	300
-#define WIN_START_POS_Y	170
+#define WIN_START_POS_X	100
+#define WIN_START_POS_Y	100
 #define WIN_SIZE_X		1280
 #define WIN_SIZE_Y		720
 

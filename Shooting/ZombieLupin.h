@@ -5,6 +5,8 @@
 
 class Image;
 
+//class Banana;
+
 class ZombieLupin : public GameObject
 {
 private:
@@ -23,6 +25,8 @@ private:
 protected:
 	bool isAttack;
 	bool isAlive;
+
+	//Banana* banana;
 
 public:
 	void Init();
