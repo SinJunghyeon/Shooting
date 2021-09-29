@@ -3,7 +3,7 @@ Zombie Lupin_idle			80	80	1	1
 Zombie Lupin_leftMove		240	80	3	1
 Zombie Lupin_RightMove		240	80	3	1
 Zombie Lupin_attack		880	80	11	1
-Zombie Lupin_damaged		320	80	4	1
+Zombie Lupin_damaged		720	80	9	1
 ZombieLupin_mirroringIdle		80	80	1	1
 Zombie Lupin_mirroringAttack	880	80	11	1
-Zombie Lupin_mirroringDamaged	320	80	4	1
+Zombie Lupin_mirroringDamaged	720	80	9	1
