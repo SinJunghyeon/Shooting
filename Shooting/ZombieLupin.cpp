@@ -7,7 +7,7 @@ void ZombieLupin::Init()
 {
 	KeyManager::GetSingleton()->Init();
 
-	monsterPos.x = WIN_SIZE_X / 2.0f;
+	monsterPos.x = WIN_SIZE_X / 4.0f;
 	monsterPos.y = WIN_SIZE_Y - 115.0f;
 	monsterBodySize = 40;
 	monsterMoveSpeed = 2.5f;
@@ -80,8 +80,8 @@ void ZombieLupin::Render(HDC hdc)
 			}
 			break;
 		case MonsterState::Move:
-			cout << "ZombieLupin Move FrameX : " << frameX << endl;
 			cout << "elapsedCount : " << elapsedCount << endl;
+			cout << "ZombieLupin Move FrameX : " << frameX << endl;
 			cout << endl;
 			if (moveDir == MoveDir::Right) {
 				INSERT_MONSTER_IMAGE(rightMove);
@@ -92,8 +92,8 @@ void ZombieLupin::Render(HDC hdc)
 			ChangeSceneX(10, 2);
 			break;
 		case MonsterState::Attack:
-			cout << "ZombieLupin Attack FrameX : " << frameX << endl;
 			cout << "elapsedCount : " << elapsedCount << endl;
+			cout << "ZombieLupin Attack FrameX : " << frameX << endl;
 			cout << endl;
 			if (moveDir == MoveDir::Right) {
 				INSERT_MONSTER_IMAGE(attack);
@@ -113,8 +113,8 @@ void ZombieLupin::Render(HDC hdc)
 			}
 			break;
 		case MonsterState::Damaged:
-			cout << "ZombieLupin Damaged FrameX : " << frameX << endl;
 			cout << "elapsedCount : " << elapsedCount << endl;
+			cout << "ZombieLupin Damaged FrameX : " << frameX << endl;
 			cout << endl;
 			if (moveDir == MoveDir::Right) {
 				INSERT_MONSTER_IMAGE(damaged);
