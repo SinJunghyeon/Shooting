@@ -14,7 +14,7 @@ void MainGame::Init()
 	backBuffer->Init(WIN_SIZE_X, WIN_SIZE_Y);
 	//Background
 	bG = new Image;
-	bG->Init("Image/BackGround/Ellynia.bmp", WIN_SIZE_X, WIN_SIZE_Y, 1, 1, false, NULL);
+	bG->Init("Image/BackGround/Sample.bmp", WIN_SIZE_X, WIN_SIZE_Y, 1, 1, false, NULL);
 
 	//ZombieLupin
 	zombieLupin = new ZombieLupin;
@@ -71,7 +71,6 @@ LRESULT MainGame::MainProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lPara
 			break;
 		}
 		break;
-
 	case WM_LBUTTONDOWN:
 		break;
 	case WM_LBUTTONUP:
