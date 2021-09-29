@@ -56,9 +56,18 @@ public:
 	void Release();														//메모리 해제
 
 	void Render(HDC hdc);												//이미지 데이터를 화면에 복사
-	void Render(HDC hdc, int destX, int destY);							//이미지 데이터를 화면에
-	void Render(HDC hdc, int destX, int destY, int frameX, int framY);	//이미지 데이터를 화면에
+	void Render(HDC hdc, int destX, int destY);							//이미지 데이터를 화면에 복사 File 프레임 무
+	void Render(HDC hdc, int destX, int destY, int frameX, int framY);	//이미지 데이터를 화면에 복사 File 프레임 유
 
 	HDC GetMemDC() { if (imageInfo) return imageInfo->hMemDc; }
+
+	void SetCurrFrameX(int frameX) { imageInfo->currFrameX = frameX; }
+	int GetCurrFrameX() { return imageInfo->currFrameX; }
+
+	void SetCurrFrameY(int frameY) { imageInfo->currFrameY = frameY; }
+	int GetCurrFrameY() { return imageInfo->currFrameY; }
+
+	int GetMaxFrameX() { return imageInfo->maxFrameX; }
+	int GetMaxFrameY() { return imageInfo->maxFrameY; }
 };
 
