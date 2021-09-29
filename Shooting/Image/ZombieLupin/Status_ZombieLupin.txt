@@ -1,9 +1,9 @@
 이름				sizeX	sizeY	frameX	frameY
-Zombie Lupin_idle			400	80	5	1
+Zombie Lupin_idle			80	80	1	1
 Zombie Lupin_leftMove		240	80	3	1
 Zombie Lupin_RightMove		240	80	3	1
-Zombie Lupin_attack		880	80	10	1
+Zombie Lupin_attack		880	80	11	1
 Zombie Lupin_damaged		320	80	4	1
-ZombieLupin_mirroringIdle		400	80	5	1
-Zombie Lupin_mirroringAttack	880	80	10	1
+ZombieLupin_mirroringIdle		80	80	1	1
+Zombie Lupin_mirroringAttack	880	80	11	1
 Zombie Lupin_mirroringDamaged	320	80	4	1

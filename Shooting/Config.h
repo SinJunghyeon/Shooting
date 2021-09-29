@@ -17,6 +17,12 @@ using namespace std;
 #define MOVE_LEFT		VK_LEFT
 #define BANANA_ATTACK	'A'
 
+//몬스터 이미지(프레임(유)) 삽입
+#define INSERT_MONSTER_IMAGE(p)	p->Render(hdc, monsterPos.x, monsterPos.y, frameX, frameY)
+
+//무기 이미지(프레임(유)) 삽입
+#define INSERT_WEAPON_IMAGE(p)	p->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY)
+
 //제거
 #define SAFE_RELEASE(p) { if(p) {p->Release(); delete p; p=nullptr;} }
 
