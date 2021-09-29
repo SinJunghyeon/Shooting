@@ -3,17 +3,26 @@
 #include "Config.h"
 #include "Monster.h"
 
+class Banana;
+
 class ZombieLupin : public Monster
 {
 private:
 	POINTFLOAT monsterPos;
-	RECT shape;
-	int bodySize;
-	float moveSpeed;
+	RECT monsterShape;
+	int monsterBodySize;
+	float monsterMoveSpeed;
 
 protected:
+	Banana* banana;
 
 public:
+	void Init();
+	void Update();
+	void Render(HDC hdc);
+	void Release();
 
+	ZombieLupin();
+	~ZombieLupin();
 };
 
