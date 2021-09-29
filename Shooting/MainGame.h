@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Config.h"
-
 #include "GameObject.h"
 
 class Image;
@@ -36,5 +35,6 @@ public:
 	void Release();
 
 	LRESULT MainProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
+
 };
 

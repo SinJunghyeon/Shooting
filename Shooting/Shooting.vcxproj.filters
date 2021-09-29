@@ -48,6 +48,18 @@
     <ClCompile Include="Image.cpp">
       <Filter>2D Framework</Filter>
     </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>2D Framework\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>2D Framework\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieLupin.cpp">
+      <Filter>2D Framework\Object\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Banana.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -66,6 +78,18 @@
       <Filter>2D Framework</Filter>
     </ClInclude>
     <ClInclude Include="Config.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>2D Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>2D Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieLupin.h">
+      <Filter>2D Framework\Object\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Banana.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
