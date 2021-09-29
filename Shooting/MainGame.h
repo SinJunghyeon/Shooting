@@ -7,23 +7,17 @@ class Image;
 
 class ZombieLupin;
 
-class Banana;
-
 class MainGame : public GameObject
 {
 private:
 	// ≈∏¿Ã∏”
 	HANDLE hTimer;
-
 	//BackBuffer
 	Image* backBuffer;
 	//Background;
 	Image* bG;
-
 	//ZombieLupin
 	ZombieLupin* zombieLupin;
-
-	Banana* banana;
 
 protected:
 
