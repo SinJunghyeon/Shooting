@@ -27,27 +27,32 @@ void Banana::Init()
 	frameX = frameY = 0;
 
 	isFire = false;
+	weaponDelay = 0;
+
+	bananaDir = MoveDir::Right;
 }
 
 void Banana::Update()
 {
-	//cout << "Banana isFire : " << boolalpha << isFire << endl;
-	//cout << "weaponPos.x : " << weaponPos.x << endl;
-	//cout << "weaponPos.y : " << weaponPos.y << endl;
-	//cout << endl;
+	cout << "Banana isFire : " << boolalpha << isFire << endl;
+	cout << "weaponPos.x : " << weaponPos.x << endl;
+	cout << "weaponPos.y : " << weaponPos.y << endl;
+	cout << "weaponBodySize : " << weaponBodySize << endl;
+	cout << endl;
 
 	if (isFire) {
-		weaponPos.x += weaponMoveSpeed;
-
-		weaponShape.left = weaponPos.x - (weaponBodySize / 2);
-		weaponShape.top = weaponPos.y - (weaponBodySize / 2);
-		weaponShape.right = weaponPos.x + (weaponBodySize / 2);
-		weaponShape.bottom = weaponPos.y + (weaponBodySize / 2);
-
-		if (weaponShape.left > WIN_SIZE_X || weaponShape.right < 0 || weaponShape.top > WIN_SIZE_Y || weaponShape.bottom < 0) {
-			isFire = false;
-			weaponPos.x = WIN_SIZE_X / 2.0f + 10.0f;
-			frameX = 0;
+		if (weaponDelay >= 61)
+		{
+			if (bananaDir == MoveDir::Right) {
+				weaponPos.x += weaponMoveSpeed;
+			}
+			else if (bananaDir == MoveDir::Left) {
+				weaponPos.x -= weaponMoveSpeed;
+			}
+			weaponShape.left = weaponPos.x - (weaponBodySize / 2);
+			weaponShape.top = weaponPos.y - (weaponBodySize / 2);
+			weaponShape.right = weaponPos.x + (weaponBodySize / 2);
+			weaponShape.bottom = weaponPos.y + (weaponBodySize / 2);
 		}
 	}
 }
@@ -55,17 +60,47 @@ void Banana::Update()
 void Banana::Render(HDC hdc)
 {
 	if (isFire) {
-		Ellipse(hdc, weaponShape.left, weaponShape.top, weaponShape.right, weaponShape.bottom);
-		cout << "Banana FrameX : " << frameX << endl;
+		cout << "weaponDelay : " << weaponDelay << endl;
 		cout << endl;
-		INSERT_WEAPON_IMAGE(move);					//move->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
-		ChangeSceneX(10, 9);						//프레임X 변화
-		//INSERT_WEAPON_IMAGE(mirroringMove);		//mirroringMove->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
-		//ChangeSceneX(10, 9);						//프레임X 변화
-		//INSERT_WEAPON_IMAGE(hit);					//hit->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
-		//ChangeSceneX(10, 2);						//프레임X 변화
-		//INSERT_WEAPON_IMAGE(mirroringHit);		//mirroringHit->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
-		//ChangeSceneX(10, 2);						//프레임X 변화
+		weaponDelay++;
+		if (weaponDelay >= 62)
+		{
+			Ellipse(hdc, weaponShape.left, weaponShape.top, weaponShape.right, weaponShape.bottom);
+			if (bananaDir == MoveDir::Right) {
+				{
+					cout << "Banana move FrameX : " << frameX << endl;
+					cout << endl;
+					INSERT_WEAPON_IMAGE(move);			//move->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
+					elapsedCount++;
+					if (elapsedCount >= 5) {
+						frameX++;
+						if (frameX >= 9) {
+							frameX = 0;
+							isFire = false;
+							weaponDelay = 0;
+						}
+						elapsedCount = 0;
+					}
+				}
+			}
+			else if (bananaDir == MoveDir::Left) {
+				INSERT_WEAPON_IMAGE(mirroringMove);		//mirroringMove->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);				
+				elapsedCount++;
+				if (elapsedCount >= 5) {
+					frameX++;
+					if (frameX >= 9) {
+						frameX = 0;
+						isFire = false;
+						weaponDelay = 0;
+					}
+					elapsedCount = 0;
+				}
+			}
+			//INSERT_WEAPON_IMAGE(hit);					//hit->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
+			//ChangeSceneX(10, 2);						//프레임X 변화
+			//INSERT_WEAPON_IMAGE(mirroringHit);		//mirroringHit->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
+			//ChangeSceneX(10, 2);						//프레임X 변화
+		}
 	}
 }
 
