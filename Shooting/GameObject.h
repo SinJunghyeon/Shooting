@@ -21,9 +21,6 @@ public:
 	void Render(HDC hdc);
 	void Release();
 
-	void ChangeSceneX(int maxElapsedCount, int maxFrameX);	//프레임X가 바뀔 때
-	void ChangeSceneY(int maxElapsedCount, int maxFrameY);	//프레임Y가 바뀔 때
-
 	GameObject();
 	~GameObject();
 

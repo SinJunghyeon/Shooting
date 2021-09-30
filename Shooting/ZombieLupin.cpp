@@ -7,7 +7,7 @@ void ZombieLupin::Init()
 {
 	KeyManager::GetSingleton()->Init();
 
-	monsterPos.x = WIN_SIZE_X / 4.0f;
+	monsterPos.x = WIN_SIZE_X / 2.0f;
 	monsterPos.y = WIN_SIZE_Y - 115.0f;
 	monsterBodySize = 40;
 	monsterMoveSpeed = 2.5f;
@@ -41,7 +41,15 @@ void ZombieLupin::Init()
 
 	banana = new Banana;
 	banana->Init();
-	banana->SetPos(monsterPos);
+
+	if (moveDir == MoveDir::Right)
+	{
+		banana->SetDirection(MoveDir::Right);
+	}
+	if (moveDir == MoveDir::Left)
+	{
+		banana->SetDirection(MoveDir::Left);
+	}
 }
 
 void ZombieLupin::Update()
@@ -66,7 +74,7 @@ void ZombieLupin::Render(HDC hdc)
 	//cout << "monsterShape.bottom : " << monsterShape.bottom << endl;
 	cout << "ZombieLupin isShoot : " << boolalpha << isShoot << endl;
 	cout << endl;
-	Rectangle(hdc, monsterShape.left - 6.0f, monsterShape.top + 7.0f, monsterShape.right + 4.0f, monsterShape.bottom + 20.0f);
+	//Rectangle(hdc, monsterShape.left - 6.0f, monsterShape.top + 7.0f, monsterShape.right + 4.0f, monsterShape.bottom + 20.0f);
 	if (idle || mirroringIdle) {
 		switch (state) {
 		case MonsterState::Idle:
@@ -157,30 +165,39 @@ void ZombieLupin::InputKey()
 			frameX = 0;
 			state = MonsterState::Idle;
 			moveDir = MoveDir::Right;
+			banana->SetDirection(MoveDir::Right);
+			isShoot = false;
 		}
 		//왼쪽 키를 땠을때 정지
 		if (KeyManager::GetSingleton()->IsOnceKeyUp(MOVE_LEFT)) {
 			frameX = 0;
 			state = MonsterState::Idle;
 			moveDir = MoveDir::Left;
+			banana->SetDirection(MoveDir::Left);
+			isShoot = false;
 		}
 		//오른쪽 키를 눌렀을때 이동
 		if (KeyManager::GetSingleton()->IsStayKeyDown(MOVE_RIGHT) || KeyManager::GetSingleton()->IsOnceKeyDown(MOVE_RIGHT)) {
 			state = MonsterState::Move;
 			moveDir = MoveDir::Right;
+			banana->SetDirection(MoveDir::Right);
 			monsterPos.x += monsterMoveSpeed;
+			isShoot = false;
 		}
 		//왼쪽 키를 눌렀을때 이동
 		else if (KeyManager::GetSingleton()->IsStayKeyDown(MOVE_LEFT) || KeyManager::GetSingleton()->IsOnceKeyDown(MOVE_LEFT)) {
 			moveDir = MoveDir::Left;
 			state = MonsterState::Move;
+			banana->SetDirection(MoveDir::Left);
 			monsterPos.x -= monsterMoveSpeed;
+			isShoot = false;
 		}
 	}
 	//공격
 	if (KeyManager::GetSingleton()->IsOnceKeyDown(BANANA_ATTACK) && (state != MonsterState::Damaged)) {
 		state = MonsterState::Attack;
 		isShoot = true;
+		banana->SetPos(monsterPos);
 		banana->SetIsFire(true);
 	}
 }

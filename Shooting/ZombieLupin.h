@@ -8,11 +8,6 @@ class Banana;
 class ZombieLupin : public Monster
 {
 private:
-	POINTFLOAT monsterPos;		//위치
-	RECT monsterShape;			//모양
-	int monsterBodySize;		//크기
-	float monsterMoveSpeed;		//이동속도
-
 	Image* idle;				//오른쪽에서 대기
 	Image* mirroringIdle;		//왼쪽에서 대기
 	Image* rightMove;			//오른쪽으로 이동
@@ -24,8 +19,6 @@ private:
 
 	MoveDir moveDir;			//방향
 	MonsterState state;			//상태
-
-	bool isShoot;				//발사했는지?
 
 protected:
 	Banana* banana;				//무기
