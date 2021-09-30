@@ -143,6 +143,9 @@ void ZombieLupin::Release()
 	SAFE_RELEASE(mirroringDamaged);
 
 	SAFE_RELEASE(banana);
+
+	KeyManager::GetSingleton()->Release();
+	KeyManager::GetSingleton()->ReleaseSingleton();
 }
 
 void ZombieLupin::InputKey()
