@@ -7,15 +7,15 @@ void ZombieLupin::Init()
 {
 	KeyManager::GetSingleton()->Init();
 
-	monsterPos.x = WIN_SIZE_X / 2.0f;
-	monsterPos.y = WIN_SIZE_Y - 115.0f;
-	monsterBodySize = 40;
-	monsterMoveSpeed = 2.5f;
+	monsterPos.x = ZOMBIELUPIN_POX_X;
+	monsterPos.y = ZOMBIELUPIN_POX_Y;
+	monsterBodySize = ZOMBIELUPIN_BODYSIZE;
+	monsterMoveSpeed = ZOMBIELUPIN_SPEED;
 
-	monsterShape.left = monsterPos.x - (monsterBodySize / 2);
-	monsterShape.top = monsterPos.y - (monsterBodySize / 2);
-	monsterShape.right = monsterPos.x + (monsterBodySize / 2);
-	monsterShape.bottom = monsterPos.y + (monsterBodySize / 2);
+	monsterShape.left = MONSTER_SIZE_LEFT;
+	monsterShape.top = MONSTER_SIZE_TOP;
+	monsterShape.right = MONSTER_SIZE_RIGHT;
+	monsterShape.bottom = MONSTER_SIZE_BOTTOM;
 
 	idle = new Image;
 	idle->Init("Image/ZombieLupin/ZombieLupin_idle.bmp", 80, 80, 1, 1, true, RGB(255,0,255));
@@ -42,24 +42,24 @@ void ZombieLupin::Init()
 	banana = new Banana;
 	banana->Init();
 
-	if (moveDir == MoveDir::Right)
-	{
-		banana->SetDirection(MoveDir::Right);
-	}
-	if (moveDir == MoveDir::Left)
-	{
-		banana->SetDirection(MoveDir::Left);
-	}
+	//if (moveDir == MoveDir::Right)
+	//{
+	//	banana->SetDirection(MoveDir::Right);
+	//}
+	//if (moveDir == MoveDir::Left)
+	//{
+	//	banana->SetDirection(MoveDir::Left);
+	//}
 }
 
 void ZombieLupin::Update()
 {
 	InputKey();
 
-	monsterShape.left = monsterPos.x - (monsterBodySize / 2);
-	monsterShape.top = monsterPos.y - (monsterBodySize / 2);
-	monsterShape.right = monsterPos.x + (monsterBodySize / 2);
-	monsterShape.bottom = monsterPos.y + (monsterBodySize / 2);
+	monsterShape.left = MONSTER_SIZE_LEFT;
+	monsterShape.top = MONSTER_SIZE_TOP;
+	monsterShape.right = MONSTER_SIZE_RIGHT;
+	monsterShape.bottom = MONSTER_SIZE_BOTTOM;
 
 	banana->Update();
 }
@@ -74,7 +74,7 @@ void ZombieLupin::Render(HDC hdc)
 	//cout << "monsterShape.bottom : " << monsterShape.bottom << endl;
 	cout << "ZombieLupin isShoot : " << boolalpha << isShoot << endl;
 	cout << endl;
-	//Rectangle(hdc, monsterShape.left - 6.0f, monsterShape.top + 7.0f, monsterShape.right + 4.0f, monsterShape.bottom + 20.0f);
+	//Rectangle(hdc, MONSTER_SIZE_LEFT - 6.0f, MONSTER_SIZE_TOP + 7.0f, MONSTER_SIZE_RIGHT + 4.0f, MONSTER_SIZE_BOTTOM + 20.0f);
 	if (idle || mirroringIdle) {
 		switch (state) {
 		case MonsterState::Idle:
@@ -115,7 +115,7 @@ void ZombieLupin::Render(HDC hdc)
 				if (frameX >= 10) {
 					frameX = 0;
 					state = MonsterState::Idle;
-					isShoot = false;
+					//isShoot = false;
 				}
 				elapsedCount = 0;
 			}
@@ -194,7 +194,7 @@ void ZombieLupin::InputKey()
 		}
 	}
 	//АјАн
-	if (KeyManager::GetSingleton()->IsOnceKeyDown(BANANA_ATTACK) && (state != MonsterState::Damaged)) {
+	if (KeyManager::GetSingleton()->IsOnceKeyDown(BANANA_ATTACK) && (state != MonsterState::Damaged) && !isShoot) {
 		state = MonsterState::Attack;
 		isShoot = true;
 		banana->SetPos(monsterPos);
