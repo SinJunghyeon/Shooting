@@ -25,11 +25,11 @@
     <Filter Include="MainGame">
       <UniqueIdentifier>{c1b5c04f-4591-40ae-bd6f-da0b9ee2a228}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MainGame\Manager">
-      <UniqueIdentifier>{cbc9ba6b-e1f4-426c-a4f8-d034880c1fa5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MainGame\Object">
       <UniqueIdentifier>{93656be9-ccdd-466e-aa01-95a29205481f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame\Object\Manager">
+      <UniqueIdentifier>{cbc9ba6b-e1f4-426c-a4f8-d034880c1fa5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,7 +37,7 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="KeyManager.cpp">
-      <Filter>MainGame\Manager</Filter>
+      <Filter>MainGame\Object\Manager</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>MainGame\Object</Filter>
@@ -54,19 +54,19 @@
     <ClCompile Include="Banana.cpp">
       <Filter>2D\Weapon</Filter>
     </ClCompile>
-    <ClCompile Include="Image.cpp">
-      <Filter>2D</Filter>
-    </ClCompile>
     <ClCompile Include="MainGame.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
       <Filter>MainGame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
-      <Filter>MainGame\Manager</Filter>
+      <Filter>MainGame\Object\Manager</Filter>
     </ClInclude>
     <ClInclude Include="KeyManager.h">
-      <Filter>MainGame\Manager</Filter>
+      <Filter>MainGame\Object\Manager</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>MainGame\Object</Filter>
@@ -86,10 +86,10 @@
     <ClInclude Include="Banana.h">
       <Filter>2D\Weapon</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h">
-      <Filter>2D</Filter>
-    </ClInclude>
     <ClInclude Include="MainGame.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
       <Filter>MainGame</Filter>
     </ClInclude>
   </ItemGroup>

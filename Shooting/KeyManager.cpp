@@ -9,6 +9,10 @@ void KeyManager::Init()
     }
 }
 
+void KeyManager::Release()
+{
+}
+
 bool KeyManager::IsOnceKeyDown(int key)
 {
 	if (GetAsyncKeyState(key) & 0x8000)
