@@ -2,6 +2,9 @@
 
 #include "Config.h"
 #include "Weapon.h"
+
+class ZombieLupin;
+
 class Banana : public Weapon
 {
 private:
@@ -13,6 +16,7 @@ private:
 	MoveDir bananaDir;
 
 protected:
+	ZombieLupin* shooting;
 
 public:
 	void Init();
@@ -22,6 +26,8 @@ public:
 
 	inline void SetDirection(MoveDir bananaDir) { this->bananaDir = bananaDir; }
 	inline MoveDir GetDirection() { return this->bananaDir; }
+
+	inline void SetShooting(ZombieLupin* shooting) { this->shooting = shooting; }
 
 	Banana();
 	~Banana();

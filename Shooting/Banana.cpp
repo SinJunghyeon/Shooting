@@ -1,13 +1,14 @@
 #include "Banana.h"
 
 #include "Image.h"
+#include "ZombieLupin.h"
 
 void Banana::Init()
 {
-	weaponPos.x = 0.0f;
-	weaponPos.y = 100.0f;
-	weaponBodySize = 27;
-	weaponMoveSpeed = 5.0f;
+	weaponPos.x = BANANA_POX_X;
+	weaponPos.y = BANANA_POX_Y;
+	weaponBodySize = BANANA_BODYSIZE;
+	weaponMoveSpeed = BANANA_SPEED;
 
 	weaponShape.left = 0;
 	weaponShape.top = 0;
@@ -30,6 +31,8 @@ void Banana::Init()
 	weaponDelay = 0;
 
 	bananaDir = MoveDir::Right;
+
+	shooting = nullptr;
 }
 
 void Banana::Update()
@@ -49,10 +52,10 @@ void Banana::Update()
 			else if (bananaDir == MoveDir::Left) {
 				weaponPos.x -= weaponMoveSpeed;
 			}
-			weaponShape.left = weaponPos.x - (weaponBodySize / 2);
-			weaponShape.top = weaponPos.y - (weaponBodySize / 2);
-			weaponShape.right = weaponPos.x + (weaponBodySize / 2);
-			weaponShape.bottom = weaponPos.y + (weaponBodySize / 2);
+			weaponShape.left = WEAPON_SIZE_LEFT;
+			weaponShape.top = WEAPON_SIZE_TOP;
+			weaponShape.right = WEAPON_SIZE_RIGHT;
+			weaponShape.bottom = WEAPON_SIZE_BOTTOM;
 		}
 	}
 }
@@ -65,37 +68,28 @@ void Banana::Render(HDC hdc)
 		weaponDelay++;
 		if (weaponDelay >= 62)
 		{
-			Ellipse(hdc, weaponShape.left, weaponShape.top, weaponShape.right, weaponShape.bottom);
+			Ellipse(hdc, WEAPON_SIZE_LEFT, WEAPON_SIZE_TOP, WEAPON_SIZE_RIGHT, WEAPON_SIZE_BOTTOM);
 			if (bananaDir == MoveDir::Right) {
-				{
 					cout << "Banana move FrameX : " << frameX << endl;
 					cout << endl;
 					INSERT_WEAPON_IMAGE(move);			//move->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
-					elapsedCount++;
-					if (elapsedCount >= 5) {
-						frameX++;
-						if (frameX >= 9) {
-							frameX = 0;
-							isFire = false;
-							weaponDelay = 0;
-						}
-						elapsedCount = 0;
-					}
 				}
-			}
 			else if (bananaDir == MoveDir::Left) {
-				INSERT_WEAPON_IMAGE(mirroringMove);		//mirroringMove->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);				
+					cout << "Banana mirroringMove FrameX : " << frameX << endl;
+					cout << endl;
+					INSERT_WEAPON_IMAGE(mirroringMove);		//mirroringMove->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);				
+					}
 				elapsedCount++;
 				if (elapsedCount >= 5) {
 					frameX++;
 					if (frameX >= 9) {
 						frameX = 0;
 						isFire = false;
+						//shooting->SetIsShoot(true);
 						weaponDelay = 0;
 					}
 					elapsedCount = 0;
 				}
-			}
 			//INSERT_WEAPON_IMAGE(hit);					//hit->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
 			//ChangeSceneX(10, 2);						//프레임X 변화
 			//INSERT_WEAPON_IMAGE(mirroringHit);		//mirroringHit->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
