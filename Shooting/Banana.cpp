@@ -38,9 +38,9 @@ void Banana::Init()
 void Banana::Update()
 {
 	cout << "Banana isFire : " << boolalpha << isFire << endl;
-	cout << "weaponPos.x : " << weaponPos.x << endl;
-	cout << "weaponPos.y : " << weaponPos.y << endl;
-	cout << "weaponBodySize : " << weaponBodySize << endl;
+	//cout << "weaponPos.x : " << weaponPos.x << endl;
+	//cout << "weaponPos.y : " << weaponPos.y << endl;
+	//cout << "weaponBodySize : " << weaponBodySize << endl;
 	cout << endl;
 
 	if (isFire) {
@@ -70,15 +70,17 @@ void Banana::Render(HDC hdc)
 		{
 			Ellipse(hdc, WEAPON_SIZE_LEFT, WEAPON_SIZE_TOP, WEAPON_SIZE_RIGHT, WEAPON_SIZE_BOTTOM);
 			if (bananaDir == MoveDir::Right) {
-					cout << "Banana move FrameX : " << frameX << endl;
-					cout << endl;
-					INSERT_WEAPON_IMAGE(move);			//move->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
+				cout << "elapsedCount : " << elapsedCount << endl;
+				cout << "Banana move FrameX : " << frameX << endl;
+				cout << endl;
+				INSERT_WEAPON_IMAGE(move);				//move->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);
 				}
 			else if (bananaDir == MoveDir::Left) {
-					cout << "Banana mirroringMove FrameX : " << frameX << endl;
-					cout << endl;
-					INSERT_WEAPON_IMAGE(mirroringMove);		//mirroringMove->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);				
-					}
+				cout << "elapsedCount : " << elapsedCount << endl;
+				cout << "Banana mirroringMove FrameX : " << frameX << endl;
+				cout << endl;
+				INSERT_WEAPON_IMAGE(mirroringMove);		//mirroringMove->Render(hdc, weaponPos.x, weaponPos.y, frameX, frameY);				
+				}
 				elapsedCount++;
 				if (elapsedCount >= 5) {
 					frameX++;

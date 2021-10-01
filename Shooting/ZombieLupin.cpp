@@ -78,8 +78,8 @@ void ZombieLupin::Render(HDC hdc)
 	if (idle || mirroringIdle) {
 		switch (state) {
 		case MonsterState::Idle:
-			cout << "ZombieLupin Idle FrameX : " << frameX << endl;
-			cout << endl;
+			//cout << "ZombieLupin Idle FrameX : " << frameX << endl;
+			//cout << endl;
 			if (moveDir == MoveDir::Right) {
 				INSERT_MONSTER_IMAGE(idle);
 			}
@@ -88,9 +88,9 @@ void ZombieLupin::Render(HDC hdc)
 			}
 			break;
 		case MonsterState::Move:
-			cout << "elapsedCount : " << elapsedCount << endl;
-			cout << "ZombieLupin Move FrameX : " << frameX << endl;
-			cout << endl;
+			//cout << "elapsedCount : " << elapsedCount << endl;
+			//cout << "ZombieLupin Move FrameX : " << frameX << endl;
+			//cout << endl;
 			if (moveDir == MoveDir::Right) {
 				INSERT_MONSTER_IMAGE(rightMove);
 			}

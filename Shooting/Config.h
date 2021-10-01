@@ -8,6 +8,12 @@
 
 using namespace std;
 
+/*
+* 버그
+* ZombieLupin에 A키를 계속 누르면 계속 생성
+* Banana에 ZombieLupin의 isShoot을 제어시켜야 하는게 안됨
+*/
+
 //화면크기
 #define WIN_START_POS_X			200
 #define WIN_START_POS_Y			100
