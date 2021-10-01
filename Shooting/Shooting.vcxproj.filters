@@ -28,7 +28,7 @@
     <Filter Include="MainGame\Object">
       <UniqueIdentifier>{93656be9-ccdd-466e-aa01-95a29205481f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MainGame\Object\Manager">
+    <Filter Include="MainGame\Manager">
       <UniqueIdentifier>{cbc9ba6b-e1f4-426c-a4f8-d034880c1fa5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -37,7 +37,7 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="KeyManager.cpp">
-      <Filter>MainGame\Object\Manager</Filter>
+      <Filter>MainGame\Manager</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>MainGame\Object</Filter>
@@ -63,10 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
-      <Filter>MainGame\Object\Manager</Filter>
+      <Filter>MainGame\Manager</Filter>
     </ClInclude>
     <ClInclude Include="KeyManager.h">
-      <Filter>MainGame\Object\Manager</Filter>
+      <Filter>MainGame\Manager</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>MainGame\Object</Filter>
