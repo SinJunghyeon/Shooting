@@ -55,6 +55,7 @@ using namespace std;
 #define BANANA_SPEED			10.0f
 
 //제거
+#define SAFE_DELETE(p) { if(p) { delete p; p=nullptr;} }
 #define SAFE_RELEASE(p) { if(p) {p->Release(); delete p; p=nullptr;} }
 
 //외부참조

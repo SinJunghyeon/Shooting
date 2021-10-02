@@ -6,8 +6,7 @@ class Image
 {
 public:
 	enum ImageLoadType { Resource, File, Empty, End };
-	typedef struct tagImageInfo
-	{
+	typedef struct tagImageInfo {
 		HDC hMemDc;
 		HBITMAP hBitmap;
 		HBITMAP hOldBit;
@@ -22,8 +21,7 @@ public:
 		int currFrameX;
 		int currFrameY;
 
-		tagImageInfo()
-		{
+		tagImageInfo() {
 			hMemDc = NULL;
 			hBitmap = NULL;
 			hOldBit = NULL;
@@ -69,6 +67,5 @@ public:
 
 	int GetMaxFrameX() { return imageInfo->maxFrameX; }
 	int GetMaxFrameY() { return imageInfo->maxFrameY; }
-
 };
 
