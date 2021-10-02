@@ -115,7 +115,7 @@ void ZombieLupin::Render(HDC hdc)
 				if (frameX >= 10) {
 					frameX = 0;
 					state = MonsterState::Idle;
-					//isShoot = false;
+					isShoot = false;
 				}
 				elapsedCount = 0;
 			}
@@ -195,10 +195,13 @@ void ZombieLupin::InputKey()
 	}
 	//АјАн
 	if (KeyManager::GetSingleton()->IsOnceKeyDown(BANANA_ATTACK) && (state != MonsterState::Damaged) && !isShoot) {
-		state = MonsterState::Attack;
-		isShoot = true;
-		banana->SetPos(monsterPos);
-		banana->SetIsFire(true);
+		if (banana->GetIsFire() == false)
+		{
+			state = MonsterState::Attack;
+			isShoot = true;
+			banana->SetPos(monsterPos);
+			banana->SetIsFire(true);
+		}
 	}
 }
 

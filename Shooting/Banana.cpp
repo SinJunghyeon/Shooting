@@ -31,8 +31,6 @@ void Banana::Init()
 	weaponDelay = 0;
 
 	bananaDir = MoveDir::Right;
-
-	shooting = nullptr;
 }
 
 void Banana::Update()
@@ -87,7 +85,6 @@ void Banana::Render(HDC hdc)
 					if (frameX >= 9) {
 						frameX = 0;
 						isFire = false;
-						//shooting->SetIsShoot(true);
 						weaponDelay = 0;
 					}
 					elapsedCount = 0;
