@@ -41,15 +41,6 @@ void ZombieLupin::Init()
 
 	banana = new Banana;
 	banana->Init();
-
-	//if (moveDir == MoveDir::Right)
-	//{
-	//	banana->SetDirection(MoveDir::Right);
-	//}
-	//if (moveDir == MoveDir::Left)
-	//{
-	//	banana->SetDirection(MoveDir::Left);
-	//}
 }
 
 void ZombieLupin::Update()

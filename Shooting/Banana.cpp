@@ -42,8 +42,7 @@ void Banana::Update()
 	cout << endl;
 
 	if (isFire) {
-		if (weaponDelay >= 61)
-		{
+		if (weaponDelay >= 61) {
 			if (bananaDir == MoveDir::Right) {
 				weaponPos.x += weaponMoveSpeed;
 			}
@@ -64,8 +63,7 @@ void Banana::Render(HDC hdc)
 		cout << "weaponDelay : " << weaponDelay << endl;
 		cout << endl;
 		weaponDelay++;
-		if (weaponDelay >= 62)
-		{
+		if (weaponDelay >= 62) {
 			Ellipse(hdc, WEAPON_SIZE_LEFT, WEAPON_SIZE_TOP, WEAPON_SIZE_RIGHT, WEAPON_SIZE_BOTTOM);
 			if (bananaDir == MoveDir::Right) {
 				cout << "elapsedCount : " << elapsedCount << endl;

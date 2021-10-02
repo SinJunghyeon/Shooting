@@ -15,8 +15,7 @@ HRESULT Image::Init(int width, int height)
 
 	ReleaseDC(g_hWnd, hdc);
 
-	if (imageInfo->hBitmap == NULL)
-	{
+	if (imageInfo->hBitmap == NULL) {
 		Release();
 		return E_FAIL;
 	}
@@ -32,8 +31,7 @@ HRESULT Image::Init(const char* fileName, int width, int height, bool isTrans, C
 	imageInfo->width = width;
 	imageInfo->height = height;
 	imageInfo->loadType = ImageLoadType::File;
-	imageInfo->hBitmap = (HBITMAP)LoadImage(g_hInstance, fileName, IMAGE_BITMAP, width, height,
-		LR_LOADFROMFILE);
+	imageInfo->hBitmap = (HBITMAP)LoadImage(g_hInstance, fileName, IMAGE_BITMAP, width, height, LR_LOADFROMFILE);
 	imageInfo->hMemDc = CreateCompatibleDC(hdc);
 
 	imageInfo->hOldBit = (HBITMAP)SelectObject(imageInfo->hMemDc, imageInfo->hBitmap);
@@ -43,8 +41,7 @@ HRESULT Image::Init(const char* fileName, int width, int height, bool isTrans, C
 	this->isTransparent = isTrans;
 	this->transColor = transColor;
 
-	if (imageInfo->hBitmap == NULL)
-	{
+	if (imageInfo->hBitmap == NULL) {
 		Release();
 		return E_FAIL;
 	}
@@ -77,8 +74,7 @@ HRESULT Image::Init(const char* fileName, int width, int height, int maxFrameX, 
 	imageInfo->frameWidth = imageInfo->width / imageInfo->maxFrameX;
 	imageInfo->frameHeight = imageInfo->height / imageInfo->maxFrameY;
 
-	if (imageInfo->hBitmap == NULL)
-	{
+	if (imageInfo->hBitmap == NULL)	{
 		Release();
 		return E_FAIL;
 	}
@@ -88,8 +84,7 @@ HRESULT Image::Init(const char* fileName, int width, int height, int maxFrameX, 
 
 void Image::Release()
 {
-	if (imageInfo)
-	{
+	if (imageInfo) {
 		SelectObject(imageInfo->hMemDc, imageInfo->hOldBit);
 		DeleteObject(imageInfo->hBitmap);
 		DeleteDC(imageInfo->hMemDc);
@@ -106,26 +101,22 @@ void Image::Render(HDC hdc)
 
 void Image::Render(HDC hdc, int destX, int destY)
 {
-	if (isTransparent)
-	{
+	if (isTransparent) {
 		GdiTransparentBlt(hdc, destX - (imageInfo->width / 2), destY - (imageInfo->height / 2), imageInfo->width, imageInfo->height,
 			imageInfo->hMemDc, 0, 0, imageInfo->width, imageInfo->height, transColor);
 	}
-	else
-	{
+	else {
 		BitBlt(hdc, 0, 0, imageInfo->width, imageInfo->height, imageInfo->hMemDc, 0, 0, SRCCOPY);
 	}
 }
 
 void Image::Render(HDC hdc, int destX, int destY, int frameX, int frameY)
 {
-	if (isTransparent)
-	{
+	if (isTransparent) {
 		GdiTransparentBlt(hdc, destX - (imageInfo->frameWidth / 2), destY - (imageInfo->frameHeight / 2), (imageInfo->frameWidth), (imageInfo->frameHeight),
 			imageInfo->hMemDc, (imageInfo->frameWidth) * frameX, (imageInfo->frameHeight) * frameY, (imageInfo->frameWidth), (imageInfo->frameHeight), transColor);
 	}
-	else
-	{
+	else {
 		BitBlt(hdc, 0, 0, imageInfo->width, imageInfo->height, imageInfo->hMemDc, 0, 0, SRCCOPY);
 	}
 }

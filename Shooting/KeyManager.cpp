@@ -2,8 +2,7 @@
 
 void KeyManager::Init()
 {
-    for (int i = 0; i < KEY_MAX_COUNT; i++)
-    {
+    for (int i = 0; i < KEY_MAX_COUNT; i++) {
         keyUp[i] = true;
         keyDown[i] = false;
     }
@@ -15,16 +14,13 @@ void KeyManager::Release()
 
 bool KeyManager::IsOnceKeyDown(int key)
 {
-	if (GetAsyncKeyState(key) & 0x8000)
-	{
-		if (keyDown[key] == false)
-		{
+	if (GetAsyncKeyState(key) & 0x8000) {
+		if (keyDown[key] == false) {
 			keyDown[key] = true;
 			return true;
 		}
 	}
-	else
-	{
+	else {
 		keyDown[key] = false;
 	}
     return false;
@@ -32,16 +28,13 @@ bool KeyManager::IsOnceKeyDown(int key)
 
 bool KeyManager::IsOnceKeyDown(char key)
 {
-	if (GetAsyncKeyState(key) & 0x8000)
-	{
-		if (keyDown[key] == false)
-		{
+	if (GetAsyncKeyState(key) & 0x8000) {
+		if (keyDown[key] == false) {
 			keyDown[key] = true;
 			return true;
 		}
 	}
-	else
-	{
+	else {
 		keyDown[key] = false;
 	}
     return false;
@@ -49,12 +42,10 @@ bool KeyManager::IsOnceKeyDown(char key)
 
 bool KeyManager::IsOnceKeyUp(int key)
 {
-	if (GetAsyncKeyState(key) & 0x8000)
-	{
+	if (GetAsyncKeyState(key) & 0x8000) {
 		keyUp[key] = false;
 	}
-	else
-	{
+	else {
 		if (keyUp[key] == false)
 		{
 			keyUp[key] = true;
@@ -66,12 +57,10 @@ bool KeyManager::IsOnceKeyUp(int key)
 
 bool KeyManager::IsOnceKeyUp(char key)
 {
-	if (GetAsyncKeyState(key) & 0x8000)
-	{
+	if (GetAsyncKeyState(key) & 0x8000) {
 		keyUp[key] = false;
 	}
-	else
-	{
+	else {
 		if (keyUp[key] == false)
 		{
 			keyUp[key] = true;
@@ -83,8 +72,7 @@ bool KeyManager::IsOnceKeyUp(char key)
 
 bool KeyManager::IsStayKeyDown(int key)
 {
-	if (GetAsyncKeyState(key) & 0x8001)
-	{
+	if (GetAsyncKeyState(key) & 0x8001) {
 		return true;
 	}
     return false;
@@ -92,8 +80,7 @@ bool KeyManager::IsStayKeyDown(int key)
 
 bool KeyManager::IsStayKeyDown(char key)
 {
-	if (GetAsyncKeyState(key) & 0x8001)
-	{
+	if (GetAsyncKeyState(key) & 0x8001) {
 		return true;
 	}
     return false;
